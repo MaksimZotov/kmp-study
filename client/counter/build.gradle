@@ -1,0 +1,35 @@
+plugins {
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.kapt)
+}
+
+android {
+    namespace 'com.mz.kmpstudy.client.counter'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 35
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+}

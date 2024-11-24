@@ -21,3 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "kmp-study"
 include ':app'
+include ':core:resources'
+include ':core:ui'
+include ':core:routing'
+include ':feature:home'
+include ':feature:counter'
+include ':client:counter'
