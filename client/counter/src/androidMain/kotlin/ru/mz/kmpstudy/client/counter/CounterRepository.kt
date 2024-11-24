@@ -1,4 +1,4 @@
-package com.mz.kmpstudy.client.counter
+package ru.mz.kmpstudy.client.counter
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow

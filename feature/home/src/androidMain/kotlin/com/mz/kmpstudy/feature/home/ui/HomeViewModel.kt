@@ -2,7 +2,7 @@ package com.mz.kmpstudy.feature.home.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mz.kmpstudy.client.counter.CounterRepository
+import ru.mz.kmpstudy.client.counter.CounterRepository
 import com.mz.kmpstudy.core.routing.navigation.RouteNavigator
 import com.mz.kmpstudy.core.routing.routes.Routes
 import dagger.hilt.android.lifecycle.HiltViewModel
