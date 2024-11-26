@@ -1,6 +1,36 @@
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.kotlin.plugin.compose)
+}
+
+compose.resources {
+    publicResClass = true
+}
+
+kotlin {
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+
+    [iosX64(), iosArm64(), iosSimulatorArm64()].each { target ->
+        target.binaries.framework {
+            baseName = "core.resources"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation libs.androidx.resources
+            implementation libs.androidx.runtime
+        }
+    }
 }
 
 android {
@@ -22,8 +52,5 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = '17'
     }
 }

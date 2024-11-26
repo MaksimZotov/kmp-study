@@ -1,0 +1,59 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.multiplatform)
+}
+
+kotlin {
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+
+    [iosX64(), iosArm64(), iosSimulatorArm64()].each { target ->
+        target.binaries.framework {
+            baseName = "core.routing"
+            isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation project(":core:routing")
+
+            implementation project(":client:counter")
+
+            implementation project(":feature:home")
+            implementation project(":feature:counter")
+
+            implementation libs.koin.core
+        }
+        androidMain.dependencies {
+            implementation libs.koin.android
+        }
+    }
+}
+
+android {
+    namespace 'com.mz.kmpstudy.core.koin'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 35
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
