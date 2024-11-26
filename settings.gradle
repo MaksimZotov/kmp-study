@@ -20,10 +20,15 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "kmp-study"
+
 include ':androidApp'
+
 include ':core:resources'
 include ':core:ui'
 include ':core:routing'
+include ':core:koin'
+
+include ':client:counter'
+
 include ':feature:home'
 include ':feature:counter'
-include ':client:counter'

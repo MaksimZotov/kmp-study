@@ -14,9 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.mz.kmpstudy.core.routing.routes.Routes
 import com.mz.kmpstudy.feature.counter.nav.CounterRoute
 import com.mz.kmpstudy.feature.home.nav.HomeRoute
-import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

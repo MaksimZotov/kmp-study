@@ -1,7 +1,12 @@
 package com.mz.kmpstudy
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.mz.kmpstudy.core.koin.KoinInitializer
 
-@HiltAndroidApp
-class KMPStudyApp : Application()
+class KMPStudyApp : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        KoinInitializer(applicationContext).init()
+    }
+}

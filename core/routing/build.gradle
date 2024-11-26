@@ -1,9 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.compose)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.plugin.compose)
 }
 
 kotlin {
@@ -19,6 +18,20 @@ kotlin {
         target.binaries.framework {
             baseName = "core.routing"
             isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation libs.koin.core
+            implementation libs.koin.compose
+
+            implementation libs.androidx.ui
+            implementation libs.androidx.ui.graphics
+            implementation libs.androidx.navigation.compose
+
+            implementation libs.androidx.lifecycle.viewmodel
+            implementation libs.androidx.navigation.compose
         }
     }
 }
@@ -43,13 +56,4 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-}
-
-dependencies {
-    implementation libs.androidx.runtime.android
-
-    implementation libs.hilt.android
-    kapt libs.hilt.compiler
-
-    implementation libs.hilt.navigation.compose
 }
