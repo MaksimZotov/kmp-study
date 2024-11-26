@@ -14,7 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mz.kmpstudy.core.ui.KSButton
 import com.mz.kmpstudy.core.ui.KSCounterItem
+import kmp_study.core.resources.generated.resources.Res
+import kmp_study.core.resources.generated.resources.add
 import kotlinx.collections.immutable.ImmutableList
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun HomeScreen(
@@ -37,7 +40,7 @@ fun HomeScreen(
                 ) {
                     KSButton(
                         modifier = Modifier.fillMaxWidth(),
-                        text = "stringResource(Res.string.add)",
+                        text = stringResource(Res.string.add),
                         onClick = onClickAdd
                     )
                 }

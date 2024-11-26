@@ -1,6 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.kotlin.plugin.compose)
+}
+
+compose.resources {
+    publicResClass = true
 }
 
 kotlin {
@@ -16,6 +22,13 @@ kotlin {
         target.binaries.framework {
             baseName = "core.resources"
             isStatic = true
+        }
+    }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation libs.androidx.resources
+            implementation libs.androidx.runtime
         }
     }
 }
