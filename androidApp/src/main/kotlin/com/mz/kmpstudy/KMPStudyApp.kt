@@ -1,7 +1,7 @@
 package com.mz.kmpstudy
 
 import android.app.Application
-import com.mz.kmpstudy.core.koin.KoinInitializer
+import com.mz.kmpstudy.core.app.koin.KoinInitializer
 
 class KMPStudyApp : Application() {
 
