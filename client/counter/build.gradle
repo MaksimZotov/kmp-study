@@ -14,7 +14,7 @@ kotlin {
 
     [iosX64(), iosArm64(), iosSimulatorArm64()].each { target ->
         target.binaries.framework {
-            baseName = "client.counter"
+            baseName = "ClientCounter"
             isStatic = true
         }
     }
