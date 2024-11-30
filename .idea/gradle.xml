@@ -12,7 +12,7 @@
             <option value="$PROJECT_DIR$/client" />
             <option value="$PROJECT_DIR$/client/counter" />
             <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/koin" />
+            <option value="$PROJECT_DIR$/core/app" />
             <option value="$PROJECT_DIR$/core/resources" />
             <option value="$PROJECT_DIR$/core/routing" />
             <option value="$PROJECT_DIR$/core/ui" />

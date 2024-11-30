@@ -6,6 +6,7 @@ import org.koin.compose.getKoin
 
 fun MainViewController() = ComposeUIViewController(
     configure = {
+        enforceStrictPlistSanityCheck = false
         KoinInitializer().init()
     },
     content = {
