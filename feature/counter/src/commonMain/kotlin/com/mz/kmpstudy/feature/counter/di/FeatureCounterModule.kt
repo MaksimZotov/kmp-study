@@ -2,11 +2,11 @@ package com.mz.kmpstudy.feature.counter.di
 
 import androidx.lifecycle.SavedStateHandle
 import com.mz.kmpstudy.feature.counter.ui.CounterViewModel
-import org.koin.compose.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val featureCounterModule = module {
-    viewModel {(handle: SavedStateHandle) ->
+    viewModel { (handle: SavedStateHandle) ->
         CounterViewModel(
             savedStateHandle = handle,
             routeNavigator = get(),

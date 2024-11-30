@@ -26,7 +26,7 @@ include ':androidApp'
 include ':core:resources'
 include ':core:ui'
 include ':core:routing'
-include ':core:koin'
+include ':core:app'
 
 include ':client:counter'
 

@@ -3,7 +3,7 @@ package com.mz.kmpstudy.feature.counter.ui
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ru.mz.kmpstudy.client.counter.CounterRepository
+import com.mz.kmpstudy.client.counter.CounterRepository
 import com.mz.kmpstudy.core.routing.navigation.RouteNavigator
 import com.mz.kmpstudy.core.routing.routes.COUNTER_NAME
 import kotlinx.coroutines.flow.SharingStarted

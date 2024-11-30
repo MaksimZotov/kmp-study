@@ -20,7 +20,7 @@ kotlin {
 
     [iosX64(), iosArm64(), iosSimulatorArm64()].each { target ->
         target.binaries.framework {
-            baseName = "core.resources"
+            baseName = "CoreResources"
             isStatic = true
         }
     }
