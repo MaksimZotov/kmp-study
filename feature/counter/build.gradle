@@ -1,8 +1,11 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.plugin.compose)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -37,6 +40,7 @@ kotlin {
             implementation libs.koin.core
             implementation libs.koin.compose
             implementation libs.koin.compose.viewmodel
+            implementation libs.koin.annotations
             implementation libs.androidx.lifecycle.viewmodel
             implementation libs.androidx.navigation.compose
         }
@@ -45,6 +49,32 @@ kotlin {
             implementation libs.androidx.ui.tooling.preview
         }
     }
+
+    // KSP Common sourceSet
+    sourceSets.named("commonMain").configure {
+        kotlin.srcDir("build/generated/ksp/metadata/commonMain/kotlin")
+    }
+}
+
+// KSP Tasks
+dependencies {
+    add("kspCommonMainMetadata", libs.koin.ksp.compiler)
+    add("kspAndroid", libs.koin.ksp.compiler)
+    add("kspIosX64", libs.koin.ksp.compiler)
+    add("kspIosArm64", libs.koin.ksp.compiler)
+    add("kspIosSimulatorArm64", libs.koin.ksp.compiler)
+}
+
+// KSP Metadata Trigger
+tasks.withType(KotlinCompilationTask).configureEach {
+    if (name != "kspCommonMainKotlinMetadata") {
+        dependsOn "kspCommonMainKotlinMetadata"
+    }
+}
+
+ksp {
+    arg("KOIN_USE_COMPOSE_VIEWMODEL","true")
+    arg("KOIN_CONFIG_CHECK","true")
 }
 
 android {

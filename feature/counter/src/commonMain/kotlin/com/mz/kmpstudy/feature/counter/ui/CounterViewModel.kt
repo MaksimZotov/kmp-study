@@ -8,7 +8,9 @@ import com.mz.kmpstudy.core.routing.navigation.RouteNavigator
 import com.mz.kmpstudy.core.routing.routes.COUNTER_NAME
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
+import org.koin.android.annotation.KoinViewModel
 
+@KoinViewModel
 class CounterViewModel(
     savedStateHandle: SavedStateHandle,
     private val routeNavigator: RouteNavigator,
